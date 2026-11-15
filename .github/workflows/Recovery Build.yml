@@ -46,12 +46,12 @@ jobs:
           repo init -u https://github.com/minimal-manifest-twrp/platform_manifest.git -b twrp-12.1 --depth=1
           repo sync -c -j"$(nproc)" --force-sync
 
-      - name: Checkout this device tree
+      - name: Checkout device tree into TWRP source
         uses: actions/checkout@v4
         with:
           path: twrp/device/ulefone/Armor_X13
 
-      - name: Prepare TWRP build
+      - name: Prepare TWRP build environment
         shell: bash
         working-directory: ${{ github.workspace }}/twrp
         run: |
